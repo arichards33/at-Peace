@@ -1,0 +1,56 @@
+<h1> Current Inspiration</h1>
+<% if @current_user != nil && @current_user.email == "admin@example.com" %>
+
+<p>
+  <%= link_to "Add New Post", "/inspirations/new" %>
+</p>
+<% Inspiration.all.each do |piece| %>
+<div class="jumbotron">
+  <div class="col-md-12 px-0">
+    <p><font size="12"><%="\'" + piece.blog_title + "\'"%></font></p>
+    <p><font size="2">Date Posted: <%=piece.date_posted%></font></p>
+    <div class="row">
+      <div class="col-sm-3 my-3 text-center">
+
+        <% image_f = (piece.image_file.present? ? piece.image_file : 'piecelogo.png') %>
+        <%= link_to image_tag(image_f, :size => "300x400", :class => "img-fluid"), "/inspirations/#{piece.id}" %>
+      </div>
+      <div class="col-sm-9">
+
+        <p><%=piece.inspo_reason%></p>
+
+      </div>
+    </div>
+  </div>
+    <br>
+    </div>
+  <% end %>
+<% else %>
+
+<p>  I tend to piece things together naturally. I have realized that I do have order in my chaos when I pause to look at what I gravitate towards at any certain point.</p>
+<p>I think that is because my mood fuels my design.</p>
+<p> Or, perhaps my design fuels my mood. </p>
+<p> Regardless, these are pics/drawings/etc. that I’ve captured.  design fuels my mood. or my mood fuels my design...</p>
+
+<% Inspiration.all.each do |piece| %>
+<div class="jumbotron">
+  <div class="col-md-12 px-0">
+    <p><font size="12"><%="\'" + piece.blog_title + "\'"%></font></p>
+    <p><font size="2"><%=piece.date_posted%></font></p>
+    <div class="row">
+      <div class="col-sm-3 my-3 text-center">
+
+        <% image_f = (piece.image_file.present? ? piece.image_file : 'piecelogo.png') %>
+        <%= image_tag(image_f, :size => "300x400", :class => "img-fluid")%>
+      </div>
+      <div class="col-sm-9">
+
+        <p><%=piece.inspo_reason%></p>
+
+      </div>
+    </div>
+  </div>
+    <br>
+    </div>
+  <% end %>
+  <%end%>

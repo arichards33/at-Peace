@@ -1,0 +1,26 @@
+<% if @current_user != nil && @current_user.email == "admin@example.com" %>
+
+<h1>Add New Artwork</h1>
+<h6>Please fill in all fields to add a piece</h6>
+<br>
+<br>
+<div class="row">
+  <div class="col-sm-4">
+
+    <%= form_tag "/art" do %>
+      <p>Type of Artwork: <input name="art_type" type="text" autofocus class="form-control"></p>
+      <p>Artwork Title: <input name="piece_name" type="text" autofocus class="form-control"></p>
+      <p>Price: <input name="price" type="text" autofocus class="form-control"></p>
+      <p>Inspiration Link: <input name="inspiration_link" type="text" autofocus class="form-control"></p>
+      <p>Size of Piece: <input name="size" type="text" class="form-control"></p>
+      <p>Image Link: <input name="image_file" type="text" class="form-control"></p>
+
+      <button class="btn btn-primary">Add Artwork</button>
+
+    <% end %>
+
+  </div>
+</div>
+<% else %>
+<%= "Please sign in to access this page" %>
+<% end %>

@@ -1,0 +1,24 @@
+<% if @current_user != nil && @current_user.email == "admin@example.com" %>
+
+<h1>Add New Fashion Project</h1>
+<h6>Please fill in all fields to add a project/h6>
+<br>
+<br>
+<div class="row">
+  <div class="col-sm-4">
+
+    <%= form_tag "/fashions" do %>
+
+      <p>Project Title: <input name="project_title" type="text" autofocus class="form-control"></p>
+      <p>Fashion Field: <input name="fashion_field" type="text" autofocus class="form-control"></p>
+      <p>Image File: <input name="image_file" type="text" autofocus class="form-control"></p>
+
+      <button class="btn btn-primary">Add Design</button>
+
+    <% end %>
+
+  </div>
+</div>
+<% else %>
+<%= "Please sign in to access this page" %>
+<% end %>

@@ -1,0 +1,30 @@
+
+
+
+  <% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |err| %>
+      <li><%= err %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+
+  <div class="container text-center">
+    <img class="mb-4" src="/peacelogo.png" alt width="140" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Sign Up Below</h1>
+    <p class="h6 mb-3 font-size">* Required Field</p>
+    <div class="row">
+      <div class="col-sm-4 col-center-block">
+      <%= form_tag "/users" do %>
+        <p>*Name: <input name="name" type="text" autofocus class="form-control"></p>
+        <p>*Email: <input value="<% @user.email %>" name="email" type="text" autofocus class="form-control"></p>
+        <p>*Password: <input value="<% @user.password %>" name="password" type="text" autofocus class="form-control"></p>
+
+        <button class="btn btn-lg btn-primary btn-block btn-warning text-white">Create Account</button>
+
+      <% end %>
+    </div>
+  </div>
+
+</div>

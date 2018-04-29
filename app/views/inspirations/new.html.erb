@@ -1,0 +1,26 @@
+<% if @current_user != nil && @current_user.email == "admin@example.com" %>
+
+<h1>Add Inspiration</h1>
+<h6>Please fill in all fields to add a post</h6>
+<br>
+<br>
+
+<div class="row">
+  <div class="col-sm-4">
+
+    <%= form_tag "/inspirations" do %>
+
+      <p>Blog Title: <input name="blog_title" type="text" autofocus class="form-control"></p>
+      <p>Date: <input name="date_posted" type="text" autofocus class="form-control"></p>
+      <p>Image File: <input name="image_file" type="text" autofocus class="form-control"></p>
+      <p>Post: <input name="inspo_reason" type="text" autofocus class="form-control"></p>
+
+      <button class="btn btn-primary">Add Post</button>
+
+    <% end %>
+
+  </div>
+</div>
+<% else %>
+<%= "Restricted access this page" %>
+<% end %>

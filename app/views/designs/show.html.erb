@@ -1,0 +1,24 @@
+<% interior = Design.find_by(id: params["id"]) %>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1><%= interior.project_title %> (<%= interior.room %>)</h1>
+    <%if interior.inspiration_link != "NA" and interior.inspiration_link != nil %>
+    <%= link_to "Inspiration", "/inspirations/#{interior.inspiration_link}"%>
+    <%end%>
+  </div>
+</div>
+<div class="row">
+
+  <div class="col-sm-6">
+    <p>
+      <%= image_tag interior.image_file, size: "600x600" %>
+    </p>
+
+    <% if @current_user != nil && @current_user.email == "admin@example.com" %>
+
+    <p><%= link_to "Remove", "/designs/#{interior.id}", method: "delete" %></p>
+    <p><%= link_to "Update", "/designs/#{interior.id}/edit" %></p>
+    <%end%>
+  </div>
+</div>

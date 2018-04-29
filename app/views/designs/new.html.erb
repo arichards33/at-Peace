@@ -1,0 +1,26 @@
+<% if @current_user != nil && @current_user.email == "admin@example.com" %>
+
+<h1>Add New Interior Design</h1>
+<h6>Please fill in all fields to add a design</h6>
+<br>
+<br>
+<div class="row">
+  <div class="col-sm-4">
+
+    <%= form_tag "/designs" do %>
+      <p>Interior Location: <input name="room" type="text" autofocus class="form-control"></p>
+      <p>Project Title: <input name="project_title" type="text" autofocus class="form-control"></p>
+      <p>Time Needed: <input name="project_time" type="text" autofocus class="form-control"></p>
+      <p>Project Cost: <input name="project_cost" type="text" autofocus class="form-control"></p>
+      <p>Inspiration Link: <input name="inspiration_link" type="text" class="form-control"></p>
+      <p>Image Link: <input name="image_file" type="text" class="form-control"></p>
+
+      <button class="btn btn-primary">Add Design</button>
+
+    <% end %>
+
+  </div>
+</div>
+<% else %>
+<%= "Please sign in to access this page" %>
+<% end %>

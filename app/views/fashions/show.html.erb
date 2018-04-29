@@ -1,0 +1,21 @@
+<% f = Fashion.find_by(id: params["id"]) %>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1><%= f.project_title %></h1>
+  </div>
+</div>
+<div class="row">
+
+  <div class="col-sm-6">
+    <p>
+      <%= image_tag f.image_file, size: "600x600" %>
+    </p>
+
+    <% if @current_user != nil && @current_user.email == "admin@example.com" %>
+
+    <p><%= link_to "Remove", "/fashions/#{f.id}", method: "delete" %></p>
+    <p><%= link_to "Update", "/fashions/#{f.id}/edit" %></p>
+    <%end%>
+  </div>
+</div>

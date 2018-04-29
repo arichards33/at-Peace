@@ -1,0 +1,27 @@
+
+<% if @current_user != nil && @current_user.email == "admin@example.com" %>
+
+<% art = Art.find_by(id: params["id"]) %>
+
+<h1>Editing <%= art.piece_name %></h1>
+
+<div class="row">
+  <div class="col-sm-4">
+
+    <%= form_tag "/art/#{art.id}", method: "patch" do %>
+
+      <p>Artwork Title: <input value="<%= art.piece_name %>" name="piece_name" type="text" autofocus class="form-control"></p>
+      <p>Type of Artwork: <input value="<%= art.art_type %>" name="art_type" type="text" autofocus class="form-control"></p>
+      <p>Price: <input value="<%= art.price %>" name="price" type="text" autofocus class="form-control"></p>
+      <p>Inspiration Link: <input value="<%= art.inspiration_link %>" name="inspiration_link" type="text" autofocus class="form-control"></p>
+      <p>Size of Piece: <input value="<%= art.size %>" name="size" type="text" class="form-control"></p>
+      <p>Image Link: <input value="<%= art.image_file %>" name="image_file" type="text" class="form-control"></p>
+
+
+      <button class="btn btn-primary">Update Artwork</button>
+
+    <% end %>
+
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,17 @@
+<h1> Recent Fashion Sketches </h1>
+<% if @current_user != nil && @current_user.email == "admin@example.com" %>
+
+<p>
+  <%= link_to "Add New Project", "/fashions/new" %>
+</p>
+<% end %>
+
+
+<div class="row">
+  <% Fashion.all.each do |piece| %>
+  <div class="col-sm-3 my-3 text-center">
+    <% image_f = (piece.image_file.present? ? piece.image_file : 'piecelogo.png') %>
+    <%= link_to image_tag(image_f, :class => "img-fluid"), "/fashions/#{piece.id}" %>
+  </div>
+  <% end %>
+</div>

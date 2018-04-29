@@ -1,0 +1,23 @@
+<% user = User.find_by(id: params["id"]) %>
+<% if user.id == session[:user_id]%>
+<h1>Editing <%=user.name%>'s Account</h1>
+<p><font size="2">* Required Field</font></p>
+
+<div class="row">
+  <div class="col-sm-4">
+
+    <%= form_tag "/users/#{user.id}", method: "patch" do %>
+
+      <p>*Name: <input name="name" type="text" autofocus class="form-control"></p>
+      <p>*Email: <input  name="email" type="text" autofocus class="form-control"></p>
+      <p>*Password: <input  name="password" type="text" autofocus class="form-control"></p>
+
+      <button class="btn btn-primary">Update User</button>
+
+    <% end %>
+
+  </div>
+</div>
+<%else%>
+<%="You only have access to your account"%>
+<%end%>

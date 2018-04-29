@@ -1,0 +1,8 @@
+<% i = Inspiration.find_by(id: params["id"]) %>
+<% if @current_user != nil && @current_user.email == "admin@example.com" %>
+
+  <p><%= link_to "Remove", "/inspirations/#{i.id}", method: "delete" %></p>
+  <p><%= link_to "Update", "/inspirations/#{i.id}/edit" %></p>
+<%else%>
+<%="This page has restricted access"%>
+<% end %>

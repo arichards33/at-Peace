@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>@Peace Designs</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  </head>
+<!-- style="background-color:#F8F9FA; -->
+  <body>
+    <div class="content">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">
+      <img src="/peacelogo.png" width="180" height="90" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/intros/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/art">Art</a></li>
+          <li class="nav-item"><a class="nav-link" href="/designs">Designs</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="/music">Music</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="/fashions">Fashion</a></li>
+          <li class="nav-item"><a class="nav-link" href="/inspirations">Current Inspiration</a></li>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <% if session[:user_id] != nil %>
+            <li class="nav-item"><%= link_to "My Account ", "/users/#{session[:user_id]}", :class => "nav-link" %></li>
+            <li class="nav-item"><%= link_to " Logout", "/logout", :class => "nav-link" %></li>
+          <% else %>
+            <li class="nav-item"><a class="nav-link" href="/users/new">Sign Up</a></li>
+            <li class="nav-item"><a class="nav-link" href="/sessions/new">Login</a></li>
+          <% end %>
+        </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+
+      <% if notice.present? %>
+        <div class="alert alert-primary">
+          <%=notice%>
+        </div>
+      <%end%>
+
+      <%= yield %>
+
+    </div>
+  </div>
+    <br>
+    <br>
+    <br>
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted"> template built for @Peace Designs 2018 </span>
+      </div>
+    </footer>
+  </body>
+</html>

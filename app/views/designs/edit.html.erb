@@ -1,0 +1,28 @@
+<% if @current_user != nil && @current_user.email == "admin@example.com" %>
+
+  <% interior = Design.find_by(id: params["id"]) %>
+
+  <h1>Editing <%= interior.project_title %></h1>
+
+  <div class="row">
+    <div class="col-sm-4">
+
+      <%= form_tag "/designs/#{interior.id}", method: "patch" do %>
+
+        <p>Project Title: <input value="<%= interior.project_title %>" name="project_title" type="text" autofocus class="form-control"></p>
+        <p>Room/Event: <input value="<%= interior.room %>" name="room" type="text" autofocus class="form-control"></p>
+        <p>Timing: <input value="<%= interior.project_time %>" name="project_time" type="text" autofocus class="form-control"></p>
+        <p>Inspiration Link: <input value="<%= interior.inspiration_link %>" name="inspiration_link" type="text" autofocus class="form-control"></p>
+        <p>Cost: <input value="<%= interior.project_cost %>" name="project_cost" type="text" class="form-control"></p>
+        <p>Image Link: <input value="<%= interior.image_file %>" name="image_file" type="text" class="form-control"></p>
+
+
+        <button class="btn btn-primary">Update Project</button>
+
+      <% end %>
+<% else %>
+  <%= "You do not have access to this page" %>
+<%end%>
+
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<% artPiece = Art.find_by(id: params["id"]) %>
+<div class="row">
+  <div class="col-sm-6">
+    <h1><%= artPiece.piece_name %> (<%= artPiece.art_type %>)</h1>
+    <p>Size: <%=artPiece.size%></p>
+    <%if artPiece.inspiration_link != "NA" and artPiece.inspiration_link != nil %>
+    <%= link_to "Inspiration", "/inspirations/#{artPiece.inspiration_link}"%>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+
+  <div class="col-sm-6">
+    <p>
+      <%= image_tag artPiece.image_file, size: "500x600" %>
+    </p>
+
+
+
+    <% if @current_user != nil && @current_user.email == "admin@example.com" %>
+
+      <p><%= link_to "Remove", "/art/#{artPiece.id}", method: "delete" %></p>
+      <p><%= link_to "Update", "/art/#{artPiece.id}/edit" %></p>
+
+    <% end %>
+  </div>
+</div>

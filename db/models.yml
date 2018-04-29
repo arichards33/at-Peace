@@ -1,0 +1,41 @@
+
+Art
+  art_type: text
+  piece_name: text
+  price: integer
+  inspiration_link: text
+  size: text
+  image_file: text
+
+Design
+  room: text
+  project_title: text
+  project_time: text
+  project_cost: integer
+  inspiration_link: text
+  image_file: text
+
+# Music
+#   song_title: text
+#   show_date: date
+#   song_writer: text
+#   video_file: text
+#   image_file: text
+
+Inspiration
+  blog_title: text
+  date_posted: date
+  image_file: text
+  inspo_reason: text
+  related_art: text
+  related_designs: text
+
+User
+  name: text
+  email: text
+  password_digest: text
+
+Fashion
+  project_title: text
+  image_file: text
+  fashion_field: text

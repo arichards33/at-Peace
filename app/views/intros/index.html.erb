@@ -1,0 +1,68 @@
+<br>
+<div class="bg-1 rounded">
+<p style="text-align:center;">
+  <img src="/AO.jpg" alt="@Peace Designs" align="middle" width="100%">
+</p>
+</div>
+
+<br>
+
+<div class="container_1 rounded bg-light">
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <h4 class="font-italic">Art</h4>
+      <p>
+        <% image_f = Art.last.image_file %>
+        <%= link_to image_tag(image_f, :class => "img-fluid rounded", size: "400x460"), "/art" %>
+      </p>
+    </div>
+    <div class="col-md-4 text-center">
+      <h4 class="font-italic">Design</h4>
+      <p>
+        <% image_f = (Design.last.image_file) %>
+        <%= link_to image_tag(image_f, :class => "img-fluid rounded", size: "400x460"), "/designs" %>
+      </p>
+    </div>
+    <div class="col-md-4 text-center">
+      <h4 class="font-italic">Fashion</h4>
+      <p>
+        <% image_f = (Fashion.last.image_file) %>
+        <%= link_to image_tag(image_f, :class => "img-fluid rounded", size: "400x460"), "/fashions" %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="jumbotron p-3 p-md-5 rounded">
+  <div class="col-md-12 px-0">
+    <h1 class="display-4 font-italic">Latest Inspiration</h1>
+    <div class="row">
+      <div class="col-md-6 px-0">
+        <% postTitle=Inspiration.last.blog_title %>
+        <% postImage=Inspiration.last.image_file %>
+        <% postDate=Inspiration.last.date_posted %>
+        <% post=Inspiration.last.inspo_reason %>
+        <%= image_tag(postImage, width: "100%", :class => "rounded", :align =>"center")%>
+      </div>
+      <div class="col-md-6 px-0">
+        <h4 class="font-italic text-center"><font size="8"> <%= "\"" + postTitle + "\"" %></font></h4>
+        <p class="inspo"><font size="2"> <%=postDate %></font></p>
+        <p class="inspo"><%= post %></p>
+        <br>
+        <br>
+        <p class="inspo"><font color="darkgray"><a href="/inspirations" class="font-weight-bold">See More Posts</a></font></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="container text-center align-center">
+  <h6>Follow @Peace on Instagram </h6>
+  <p>
+  <%= link_to image_tag("/instalogo.png", size: "40x40"), "https://www.instagram.com" %>
+  </p>
+</div>
